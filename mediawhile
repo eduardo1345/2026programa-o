@@ -1,0 +1,44 @@
+#include <stdio.h>
+
+int main(void) {
+
+    float celsius;
+    float soma = 0.0;
+    float media;
+    int contador = 0;
+
+    printf("Digite uma temperatura em Celsius:\n");
+    printf("Digite um valor menor que -50 ou igual a 50 para encerrar.\n");
+
+    scanf("%f", &celsius);
+
+    // Continua enquanto a temperatura estiver no intervalo permitido
+    while (celsius >= -50 && celsius < 50) {
+
+        // Soma a temperatura digitada
+        soma = soma + celsius;
+
+        // Conta a quantidade de temperaturas validas
+        contador++;
+
+        // Solicita a proxima temperatura
+        printf("Digite outra temperatura em Celsius:\n");
+        scanf("%f", &celsius);
+    }
+
+    // Verifica se alguma temperatura foi registrada
+    if (contador > 0) {
+
+        // Calcula a media das temperaturas
+        media = soma / contador;
+
+        printf("\nQuantidade de temperaturas: %d\n", contador);
+        printf("Soma das temperaturas: %.2f\n", soma);
+        printf("Media das temperaturas: %.2f Celsius\n", media);
+
+    } else {
+        printf("Nenhuma temperatura valida foi digitada.\n");
+    }
+
+    return 0;
+}
