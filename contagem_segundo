@@ -1,0 +1,51 @@
+
+/*
+Faça um programa que receba a hora, os minutos e os segundos
+atuais e informe quantos segundos faltam para terminar o dia.
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void) {
+
+    // Variaveis para armazenar o horario atual
+    int hora, minuto, segundo;
+
+    // Variaveis utilizadas nos calculos
+    int segundos_no_dia;
+    int segundos_decorridos;
+    int segundos_restantes;
+
+    // Solicita o horario no formato hora/minuto/segundo
+    printf("Digite o horario atual no formato (H/M/S):\n");
+
+    // Verifica se os tres valores foram lidos corretamente
+    if (scanf("%d/%d/%d", &hora, &minuto, &segundo) != 3) {
+        printf("Entrada invalida!\n");
+        return EXIT_FAILURE;
+    }
+
+    // Verifica se o horario esta dentro dos limites validos
+    if (hora < 0 || hora >= 24 ||
+        minuto < 0 || minuto >= 60 ||
+        segundo < 0 || segundo >= 60) {
+
+        printf("Horario invalido!\n");
+        return EXIT_FAILURE;
+    }
+
+    // Calcula a quantidade total de segundos em um dia
+    segundos_no_dia = 24 * 60 * 60;
+
+    // Converte o horario atual em segundos
+    segundos_decorridos = (hora * 3600) + (minuto * 60) + segundo;
+
+    // Calcula quantos segundos faltam para terminar o dia
+    segundos_restantes = segundos_no_dia - segundos_decorridos;
+
+    // Mostra o resultado
+    printf("Segundos ate o fim do dia: %d\n", segundos_restantes);
+
+    return EXIT_SUCCESS;
+}
