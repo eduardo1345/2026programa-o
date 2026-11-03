@@ -3,16 +3,21 @@
 #include <string.h> 
 
 int main(){
+    
     char nome[16];
+    int tamanho;
     
     printf("Digite seu nome:\n");
     fgets(nome, 15, stdin);
     
     
     nome[strcspn(nome, "\n")] = '\0';
+
+    tamanho =strlen(nome);
     
     printf("Ola %s, bem-vindo!\n", nome);
     printf("sua inicial :%c \n",nome[0]);
-
+    printf("total de bite :%d\n",tamanho);
+    
     return 0;
 }
