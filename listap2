@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/* 1) Crie um algoritmo que imprima uma tabela de conversão de polegadas para centímetros. Deseja-se
+que na tabela conste valores de 1 polegada até 20 polegadas inteiras.
+(Para isso considere: 1 polegada = 2,54 cm)*/
+
+void conversao_polegadas() {
+    float polegadas = 1.0;
+    float centimetros = polegadas * 2.54;
+    float salvaRetorno;
+
+    for(polegadas ; polegadas < 21 ; polegadas++){
+         salvaRetorno = centimetros * polegadas; 
+        printf("%-2.0f polegada equivalem a %.2f cm\n",polegadas, salvaRetorno);
+    }
+    return;
+}//conversao_polegadas
+
+/*2) Crie um programa que receba um número positivo Z e imprima todos os números de Z até 1 e no final
+exiba quais são os números múltiplos de 4, quantos números são múltiplos de 3 e a média dos números
+múltiplos de 5.*/
+
+void multiplos(){
+    int z ;
+    int multiplo4[z];
+    int multiplo3[z];
+    int media_multiplos5[z];
+    
+    printf("Digite um número positivo:");
+    scanf("%d",&z);
+    for( z ; z  > 0 ; z--){
+        printf("%d \n" , z);
+        if(z %5 == 0 ){
+            
+        }
+    }//for
+}//multiplos
+
+int main() {
+  
+    
+
+    conversao_polegadas();
+    multiplos();
+
+    
+    return 0;
+}
