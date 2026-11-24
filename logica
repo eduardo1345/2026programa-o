@@ -1,0 +1,30 @@
+6.1 – Máximo divisor comum
+
+Entrada: a, b ∈ ℕ
+Pré: a > 0 ∧ b > 0 (o mdc de 0 e 0 não é definido)
+Pós: d | a0 ∧ d | b0 ∧ ∀k ∈ ℕ ((k | a0 ∧ k | b0) → k ≤ d)
+
+Ou seja, d divide os dois números e é o maior que faz isso. Se o livro permitir, "d | a0" pode ser escrito como ∃q (a0 = q·d).
+
+6.2 – Soma preservada
+
+Entrada: x, y ∈ ℤ
+Pré: x = x0 ∧ y = y0
+Pós: x + y = x0 + y0
+
+As variáveis podem mudar durante a execução. O que importa é que a soma no estado final seja igual à soma no estado inicial. Por isso a especificação guarda os valores iniciais x0 e y0.
+
+6.3 – Divisão inteira sem usar / nem mod
+
+Entrada: x, y
+Pré: x ≥ 0 ∧ y > 0
+Saída: q (quociente) e r (resto)
+Pós: x0 = q·y0 + r ∧ 0 ≤ r ∧ r < y0
+
+Essa é a definição clássica do algoritmo da divisão (x = q·y + r, com 0 ≤ r < y). Ela usa só multiplicação, soma e comparação, sem os operadores proibidos.
+
+6.4 – Gerar um número par
+
+Entrada: nenhuma
+Pré: verdadeiro
+Pós: ∃k ∈ ℤ (n = 2·k)
