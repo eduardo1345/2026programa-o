@@ -6,44 +6,116 @@ que na tabela conste valores de 1 polegada até 20 polegadas inteiras.
 (Para isso considere: 1 polegada = 2,54 cm)*/
 
 void conversao_polegadas() {
-    float polegadas = 1.0;
-    float centimetros = polegadas * 2.54;
-    float salvaRetorno;
+    float resultado = 0 , centimetros = 2.54;
 
-    for(polegadas ; polegadas < 21 ; polegadas++){
-         salvaRetorno = centimetros * polegadas; 
-        printf("%-2.0f polegada equivalem a %.2f cm\n",polegadas, salvaRetorno);
-    }
-    return;
-}//conversao_polegadas
+    for(int i = 1 ; i <= 20 ; i++){
+        resultado = centimetros * i; 
+        printf("%2d Polegada equivalem a %3.2f cm\n",i, resultado);
+    }   
+}
 
 /*2) Crie um programa que receba um número positivo Z e imprima todos os números de Z até 1 e no final
 exiba quais são os números múltiplos de 4, quantos números são múltiplos de 3 e a média dos números
 múltiplos de 5.*/
 
 void multiplos(){
-    int z ;
-    int multiplo4[z];
-    int multiplo3[z];
-    int media_multiplos5[z];
+    int numero , i , mtp3 = 0 , mtp5 = 0;
+    float somaMTP5 = 0 ,media;
     
     printf("Digite um número positivo:");
-    scanf("%d",&z);
-    for( z ; z  > 0 ; z--){
-        printf("%d \n" , z);
-        if(z %5 == 0 ){
-            
+    scanf("%d",&numero);
+    if(numero <= 0){
+        printf("Entrada invalida,numero negativo");
+        return;
+    }
+    printf("\n---CONTAGEM REGRESSIVA---\n");
+    for( i = numero ; i  >= 1 ; i--){
+        printf("%2d " , i);
+
+        if(i % 3 == 0){
+            mtp3++;
+        }
+        if (mtp5 > 0) {
+            media = somaMTP5 / mtp5; 
+            printf("MEDIA MULTIPLOS 5: %.2f\n", media);
+        } else {
+            printf("nenhum multiplo de 5\n");
         }
     }//for
-}//multiplos
+    
+    printf("\n---MULTIPLOS DE 4---\n");
+    for( i = numero ; i  >= 1 ; i--){
+        if( i % 4 == 0){
+             printf("%4d ",i);
+        }
+    }//for
+
+    printf("\nQUANTIDADE DE MULTIPLOS DE 3: %d\n",mtp3);
+    media =(float)somaMTP5/mtp5; 
+    printf("MEDIA MULTIPLOS 5: %.2f\n ",media); 
+}
+
+void quadrado(){
+    int tamanho = 10, i , j; 
+
+    printf("Digite o tamanho do quadrado:");
+    scanf("%d", &tamanho);
+    
+    for(i = 0; i < tamanho; i++){
+        for(j = 0; j< tamanho; j++){
+            if(i == 0 || i == tamanho -1 || j == 0 || j == tamanho -1 ){
+                printf("#");
+            }else{
+                printf(" ");
+            }
+        }
+        printf("\n");
+    }
+    
+}
+/*
+4) Faça um programa que leia e armazene um vetor (VetorA) de inteiros e tamanho 10. Crie um VetorB, de mesmo tamanho, gerado a partir do Vetor A invertido (de trás para frente). Em seguida, calcule o VetorC que deverá ser o resultado do VetorA multiplicado pelo escalar 3 e em seguida subtraído do Vetor B.
+*/
+void vetorInvertido(){
+    int vetorA[10] , vetorB[10] ,vetorC[10], i;
+
+        printf("\n---Digite um vetorA---\n");
+    for(i = 0; i < 10; i++){
+        printf("Posição:%d\n",i + 1);
+        scanf("%d",&vetorA[i]);
+    }
+    for(i = 0; i < 10;i++){
+        vetorB[i] = vetorA[ 9 -1 -i ] ; 
+    }
+    for( i = 0; i < 10; i++){
+        vetorC[i] = (vetorA[i] * 3) - vetorB[i];
+    }
+     printf("\n--- RESULTADOS ---\n");
+    printf("Vetor A: ");
+    for (i = 0; i < 10; i++) {
+        printf("%4d ", vetorA[i]);
+    }
+
+    printf("\nVetor B: ");
+    for (i = 0; i < 10; i++) {
+        printf("%4d ", vetorB[i]);
+    }
+
+    printf("\nVetor C: ");
+    for (i = 0; i < 10; i++) {
+        printf("%4d ", vetorC[i]);
+    }
+    printf("\n");
+}
+
 
 int main() {
   
     
 
-    conversao_polegadas();
-    multiplos();
-
+    //conversao_polegadas();
+    //multiplos();
+    //quadrado();
     
     return 0;
 }
